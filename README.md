@@ -1,6 +1,6 @@
 # okra-react-native
 
-This is a react native library for implementing okra widget
+This is a react native library for **expo** users to help implement okra widget
 
 ### Get Started
 This library would help you add Okra widget to your react native android app in no time. All you need to do is ...
