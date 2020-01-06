@@ -55,5 +55,4 @@ export default function App() {
 |  `products`           | `Array[String]`| true                |  undefined          | The Okra products you want to use with the widget.
 |  `env`                | `String`       | true                |  undefined          | 
 |  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
-
-
+|  `onClose`            | `function`     | true                |  undefined          | This acts as a callback that gets fired when the OkraView Component has been closed. It is intended to hold your navigation code, to navigate to previous page or any intended page. 
