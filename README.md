@@ -3,26 +3,41 @@
 This is a react native library for **expo** users to help implement okra widget
 
 ### Get Started
-This library would help you add Okra widget to your react native android app in no time. All you need to do is ...
+This library would help you add Okra widget to your react native IOS/Android app in no time. 
 
-### Install
-1. Clone the git library using:
-
-``` git
-git clone https://github.com/okraHQ/react-native-expo.git
-```
-
-2. Pack the library with npm (Inside the root directory):
+### Install Okra-Expo
+1. install react-native-okra-expo
 ``` npm
-npm pack
+$ npm install react-native-okra-expo
 ```
-this would create a `tgz` extention file named `okra-react-native-expo-1.0.0.tgz`. 
 
-3. Install this file in your react native project using the following command:
+2. link react-native-okra-expo
 ``` npm
-npm install ${path}/okra-react-native-expo-1.0.0.tgz
+$ react-native link react-native-okra-expo
 ```
-`${path}` refers to the absolute path to the `okra-react-native-expo-1.0.0.tgz` file for example: `C:\Users\Java\Documents\Github\okra-react-native\react-native-okra-react-native\okra-react-native-expo-1.0.0.tgz` where the packed npm module is located. 
+
+3. Pod install: enter the ios directory in the root directory the project and run:
+``` pod
+$ pod install
+```
+
+### Install react-native-webview
+
+1. install react-native-webview
+``` npm
+npm install --save react-native-webview
+```
+
+2. link react-native-okra-expo
+``` npm
+$ react-native link react-native-webview
+```
+
+3. Pod install: enter the ios directory in the root directory the project and run:
+``` pod
+$ pod install
+```
+
 
 
 ### Usage
