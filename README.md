@@ -36,11 +36,38 @@ import {OkraView} from 'okra-react-native-expo';
 export default function App() {
   return (
     <OkraView
-      clientName = "mesut ozil"
-      okraKey = "ea0059da-2d35-56b8-b3df-1280226b920f"
-      token = "5da64ac38e94d862392d092d"
-      products = {["auth","transactions","balance","income"]}
-      onClose = {function(){alert("this is my concept")}}
+        callback_url=""
+        clientName="client"
+        color="#953ab7"
+        connectMessage="Which account do you want to connect with?"
+        currency="USD"
+        env="production"
+        exp="2020-08-06"
+        filter={{
+          banks: ['access-bank', 'guaranty-trust-bank'],
+          industry_type: 'all',
+        }}
+        isCorporate={false}
+        public_key="1ee202-332-eued-3d33ee"
+        limit="24"
+        logo="https://cdn.okra.ng/images/icon.svg"
+        products={['auth', 'balance', 'transactions']}
+        redirect_url="redirect"
+        success_message="this is the success message"
+        success_title="it has entered success"
+        token="5ecfd65b45006210334e35ce"
+        widget_failed=""
+        widget_success="Your account was successfully linked to Okra, Inc"
+        onClose={response => {
+          console.log('it hit on close');
+        }}
+        onSuccess={response => {
+          console.log('it hit on success', response);
+        }}
+        onError={response => {
+          console.log('it hit on error');
+        }}
+      />Close = {function(){alert("this is my concept")}}
     />
   );
 }
