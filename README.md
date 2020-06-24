@@ -31,7 +31,7 @@ npm install ${path}/okra-react-native-expo-1.0.0.tgz
 ``` javascript
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {OkraView} from 'okra-react-native-expo';
+import OkraView from 'okra-react-native-expo';
 
 export default function App() {
   return (
