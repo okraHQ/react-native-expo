@@ -67,7 +67,7 @@ export default function App() {
         onError={response => {
           console.log('it hit on error');
         }}
-      />Close = {function(){alert("this is my concept")}}
+      />
     />
   );
 }
