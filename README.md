@@ -56,7 +56,7 @@ export default function App() {
         color="#953ab7"
         connectMessage="Which account do you want to connect with?"
         currency="USD"
-        env="production"
+        env="production" // for sandbox use production-sandbox
         exp="2020-08-06"
         filter={{
           banks: ['access-bank', 'guaranty-trust-bank'],
@@ -94,6 +94,6 @@ export default function App() {
 |  `key `               | `String`       | true                |  undefined          | Your public key from Okra.
 |  `token`              | `String`       | true                |  undefined          | Your pubic Key from okra. Use test key for test mode and live key for live mode
 |  `products`           | `Array[String]`| true                |  undefined          | The Okra products you want to use with the widget.
-|  `env`                | `String`       | true                |  undefined          | 
+|  `env`                | `String`       | true                |  undefined          | 'production' or 'production-sandbox'
 |  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
 |  `onClose`            | `function`     | true                |  undefined          | This acts as a callback that gets fired when the OkraView Component has been closed. It is intended to hold your navigation code, to navigate to previous page or any intended page. 
