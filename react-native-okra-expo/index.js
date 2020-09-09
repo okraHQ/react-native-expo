@@ -39,7 +39,7 @@ export default class OkraView extends Component {
         return (
             <WebView
                 ref={r => (this.webref = r)}
-                source={{ uri: 'https://mobile.okra.ng/' }}
+                source={{ uri: 'https://v2-mobile.okra.ng/mobile.html' }}
                 javaScriptEnabled={true}
                 injectedJavaScript={this.INJECTED_JAVASCRIPT}
                 onLoadEnd={syntheticEvent => {
