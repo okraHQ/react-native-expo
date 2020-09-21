@@ -56,9 +56,7 @@ export default class OkraView extends Component {
                         }else{
                             this.props.onClose(response.data)
                         }
-                     }else{
-                         console.log(event.nativeEvent.type);
-                   }
+                     }
                 }}
             />
         );
