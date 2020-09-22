@@ -25,6 +25,7 @@ export default class OkraView extends Component {
         key: this.props.public_key,
         limit: this.props.limit,
         logo: this.props.logo,
+        options: this.props.options,
         products: this.props.products,
         redirect_url: this.props.redirect_url,
         source: Platform.OS === 'android' ? 'rn-android' : 'rn-ios',
