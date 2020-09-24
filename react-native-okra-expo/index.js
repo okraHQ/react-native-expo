@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform} from 'react-native';
+import { Platform, Dimensions, ActivityIndicator, View} from 'react-native';
 import { WebView } from 'react-native-webview';
 
 export default class OkraView extends Component {
@@ -8,6 +8,9 @@ export default class OkraView extends Component {
         super(props);
         this.state = {}
     }
+
+    width = Math.round(Dimensions.get('window').width);
+    height = Math.round(Dimensions.get('window').height);
 
     json = JSON.stringify({
         callback_url: this.props.callback_url,
@@ -37,13 +40,15 @@ export default class OkraView extends Component {
     INJECTED_JAVASCRIPT = `openOkraWidget('${this.json}')`;
     render() {
         return (
+            <View style={{ flex: 1 }}>
             <WebView
                 ref={r => (this.webref = r)}
-                source={{ uri: 'https://v2-app.okra.ng/mobile.html' }}
+                source={{ uri: 'https://v2-mobile.okra.ng/' }}
                 javaScriptEnabled={true}
                 injectedJavaScript={this.INJECTED_JAVASCRIPT}
                 onLoadEnd={syntheticEvent => {
                     this.webref.injectJavaScript(this.INJECTED_JAVASCRIPT);
+                    this.setState({loaded : true})
                 }}
                 onNavigationStateChange={this.handleWebViewNavigationStateChange}
                 onMessage={(event) => {
@@ -59,6 +64,13 @@ export default class OkraView extends Component {
                      }
                 }}
             />
+            {!this.state.loaded && (<ActivityIndicator
+              color="green"
+              style={{ position: "absolute", top: this.height/2, left: (this.width/2) - 16, flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center', }}
+              size="large"/>)}
+              </View>
         );
     }
 
