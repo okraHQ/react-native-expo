@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, Dimensions, ActivityIndicator, View} from 'react-native';
+import { Platform, Dimensions, ActivityIndicator, View, StyleSheet} from 'react-native';
 import { WebView } from 'react-native-webview';
 
 export default class OkraView extends Component {
@@ -65,10 +65,8 @@ export default class OkraView extends Component {
                 }}
             />
             {!this.state.loaded && (<ActivityIndicator
-              color="green"
-              style={{ position: "absolute", top: this.height/2, left: (this.width/2) - 16, flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center', }}
+              color= {this.props.color ? this.props.color : "green"}
+              style={this.styles.centerSpinner}
               size="large"/>)}
               </View>
         );
@@ -82,4 +80,14 @@ export default class OkraView extends Component {
             this.props.onClose({})
         }
     }
+
+    styles = StyleSheet.create({
+        centerSpinner: {
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            bottom: 0,
+            right: 0,
+        }
+    })
 }

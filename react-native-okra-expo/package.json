@@ -1,7 +1,7 @@
 {
   "name": "react-native-okra-expo",
   "title": "React Native Okra Expo",
-  "version": "2.0.1-beta.1",
+  "version": "2.0.2-beta.1",
   "description": "Okra widget v2 beta version",
   "main": "index.js",
   "files": [
