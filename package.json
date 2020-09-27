@@ -1,0 +1,8 @@
+{
+    "name": "react-native-okra-expo",
+    "title": "React Native Okra Expo",
+    "version": "1.0.0",
+    "scripts": {
+        "install": "cd src && yarn"
+    }
+}
