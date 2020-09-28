@@ -62,6 +62,10 @@ export default function App() {
           banks: ['access-bank', 'guaranty-trust-bank'],
           industry_type: 'all',
         }}
+        options={{
+          client_id: 'anything',
+          client_name: 'John Doe',
+        }}
         isCorporate={false}
         public_key="1ee202-332-eued-3d33ee"
         limit="24"
@@ -93,6 +97,7 @@ export default function App() {
 |-----------------------|----------------|---------------------|---------------------|---------------------|
 |  `key `               | `String`       | true                |  undefined          | Your public key from Okra.
 |  `token`              | `String`       | true                |  undefined          | Your pubic Key from okra. Use test key for test mode and live key for live mode
+|   `options`           | `Object`        | false               | empty object        | Meta Data for additional information
 |  `products`           | `Array[String]`| true                |  undefined          | The Okra products you want to use with the widget.
 |  `env`                | `String`       | true                |  undefined          | 'production' or 'production-sandbox'
 |  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
