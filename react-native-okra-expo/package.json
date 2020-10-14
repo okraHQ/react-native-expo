@@ -1,7 +1,7 @@
 {
   "name": "react-native-okra-expo",
   "title": "React Native Okra Expo",
-  "version": "2.0.3-beta.1",
+  "version": "2.0.4-beta.1",
   "description": "Okra widget v2 beta version",
   "main": "index.js",
   "files": [
@@ -12,7 +12,7 @@
     "react-native-okra-expo.podspec"
   ],
   "scripts": {
-    "install": "cd src && yarn"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "react-native": "^0.61.5"
   },
   "dependencies": {
+    "react-native-device-info": "^6.2.0",
     "react-native-webview": "^10.9.0"
   }
 }

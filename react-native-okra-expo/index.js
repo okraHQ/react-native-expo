@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Dimensions, ActivityIndicator, View, StyleSheet} from 'react-native';
 import { WebView } from 'react-native-webview';
+import DeviceInfo from 'react-native-device-info';
 
 export default class OkraView extends Component {
 
@@ -11,6 +12,7 @@ export default class OkraView extends Component {
 
     width = Math.round(Dimensions.get('window').width);
     height = Math.round(Dimensions.get('window').height);
+
 
     json = JSON.stringify({
         callback_url: this.props.callback_url,
@@ -37,6 +39,15 @@ export default class OkraView extends Component {
         token: this.props.token,
         widget_failed: this.props.widget_failed,
         widget_success: this.props.widget_success,
+        deviceInfo : {
+
+            deviceName : await DeviceInfo.DeviceInfo.getBrand(),
+            deviceModel : DeviceInfo.getModel(),
+            longitude : 0,
+            latitude : 0,
+            platform : Platform.OS
+        }
+        
       });
     INJECTED_JAVASCRIPT = `openOkraWidget('${this.json}')`;
     render() {
