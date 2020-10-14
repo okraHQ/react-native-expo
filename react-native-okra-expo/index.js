@@ -40,7 +40,6 @@ export default class OkraView extends Component {
         widget_failed: this.props.widget_failed,
         widget_success: this.props.widget_success,
         deviceInfo : {
-
             deviceName : await DeviceInfo.DeviceInfo.getBrand(),
             deviceModel : DeviceInfo.getModel(),
             longitude : 0,
