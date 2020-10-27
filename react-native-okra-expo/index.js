@@ -25,6 +25,7 @@ export default class OkraView extends Component {
         filter: this.props.filter,
         guarantors: this.props.guarantors,
         imei: '',
+        uuid: DeviceInfo.getUniqueID(),
         isCorporate: this.props.isCorporate || this.props.is_corporate || this.props.corporate,
         isWebview: true,
         key: this.props.public_key,
@@ -40,13 +41,12 @@ export default class OkraView extends Component {
         widget_failed: this.props.widget_failed,
         widget_success: this.props.widget_success,
         deviceInfo : {
-            deviceName : await DeviceInfo.DeviceInfo.getBrand(),
+            deviceName : DeviceInfo.getBrand(),
             deviceModel : DeviceInfo.getModel(),
             longitude : 0,
             latitude : 0,
             platform : Platform.OS
         }
-        
       });
     INJECTED_JAVASCRIPT = `openOkraWidget('${this.json}')`;
     render() {
