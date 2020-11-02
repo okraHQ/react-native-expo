@@ -25,7 +25,7 @@ export default class OkraView extends Component {
         filter: this.props.filter,
         guarantors: this.props.guarantors,
         imei: '',
-        uuid: DeviceInfo.getUniqueID(),
+        uuid: DeviceInfo.getUniqueId(),
         isCorporate: this.props.isCorporate || this.props.is_corporate || this.props.corporate,
         isWebview: true,
         key: this.props.public_key,

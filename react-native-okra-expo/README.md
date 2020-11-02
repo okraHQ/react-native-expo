@@ -8,7 +8,7 @@ This library would help you add Okra widget to your react native IOS/Android app
 ### Install Okra-Expo
 1. install react-native-okra-expo
 ``` npm
-$ npm install react-native-okra-expo@2.0.4-beta.1
+$ npm install react-native-okra-expo@2.0.5-beta.1
 ```
 
 2. link react-native-okra-expo
