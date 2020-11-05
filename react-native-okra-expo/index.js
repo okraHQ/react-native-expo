@@ -8,38 +8,14 @@ export default class OkraView extends Component {
     constructor(props) {
         super(props);
         this.state = {}
+        this.okraOptions = this.props.okraOptions;
     }
 
-    width = Math.round(Dimensions.get('window').width);
-    height = Math.round(Dimensions.get('window').height);
-
-
-    json = JSON.stringify({
-        callback_url: this.props.callback_url,
-        clientName: this.props.client_name || this.props.clientName,
-        color: this.props.color,
-        connectMessage: this.props.connectMessage || this.props.connect_message,
-        currency: this.props.currency,
-        env: this.props.env,
-        exp: this.props.exp,
-        filter: this.props.filter,
-        guarantors: this.props.guarantors,
-        imei: '',
-        uuid: DeviceInfo.getUniqueId(),
-        isCorporate: this.props.isCorporate || this.props.is_corporate || this.props.corporate,
-        isWebview: true,
-        key: this.props.public_key,
-        limit: this.props.limit,
-        logo: this.props.logo,
-        options: this.props.options,
-        products: this.props.products,
-        redirect_url: this.props.redirect_url,
-        source: Platform.OS === 'android' ? 'rn-android' : 'rn-ios',
-        success_message: this.props.success_message,
-        success_title: this.props.success_title,
-        token: this.props.token,
-        widget_failed: this.props.widget_failed,
-        widget_success: this.props.widget_success,
+    okraOptions = {
+        ...this.props.okraOptions,
+        isWebview : true,
+        source : Platform.OS === 'android' ? 'rn-android' : 'rn-ios',
+        uuid : DeviceInfo.getUniqueId(),
         deviceInfo : {
             deviceName : DeviceInfo.getBrand(),
             deviceModel : DeviceInfo.getModel(),
@@ -47,7 +23,13 @@ export default class OkraView extends Component {
             latitude : 0,
             platform : Platform.OS
         }
-      });
+    };
+    
+    width = Math.round(Dimensions.get('window').width);
+    height = Math.round(Dimensions.get('window').height);
+
+    json = JSON.stringify(this.okraOptions);
+
     INJECTED_JAVASCRIPT = `openOkraWidget('${this.json}')`;
     render() {
         return (
@@ -58,6 +40,7 @@ export default class OkraView extends Component {
                 javaScriptEnabled={true}
                 injectedJavaScript={this.INJECTED_JAVASCRIPT}
                 onLoadEnd={syntheticEvent => {
+                    console.log("the end of life ", this.INJECTED_JAVASCRIPT)
                     this.webref.injectJavaScript(this.INJECTED_JAVASCRIPT);
                     this.setState({loaded : true})
                 }}
