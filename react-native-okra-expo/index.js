@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, Dimensions, ActivityIndicator, View, StyleSheet} from 'react-native';
 import { WebView } from 'react-native-webview';
-import DeviceInfo from 'react-native-device-info';
+import * as Device from 'expo-device';
+import Constants from 'expo-constants';
 
 export default class OkraView extends Component {
 
@@ -11,20 +12,22 @@ export default class OkraView extends Component {
         this.okraOptions = this.props.okraOptions;
     }
 
+
+
     okraOptions = {
         ...this.props.okraOptions,
         isWebview : true,
         source : Platform.OS === 'android' ? 'rn-android' : 'rn-ios',
-        uuid : DeviceInfo.getUniqueId(),
+        uuid : Constants.deviceId,
         deviceInfo : {
-            deviceName : DeviceInfo.getBrand(),
-            deviceModel : DeviceInfo.getModel(),
+            deviceName : Device.brand,
+            deviceModel : Device.modelId,
             longitude : 0,
             latitude : 0,
             platform : Platform.OS
         }
     };
-    
+
     width = Math.round(Dimensions.get('window').width);
     height = Math.round(Dimensions.get('window').height);
 
@@ -36,7 +39,7 @@ export default class OkraView extends Component {
             <View style={{ flex: 1 }}>
             <WebView
                 ref={r => (this.webref = r)}
-                source={{ uri: 'https://v2-mobile.okra.ng/' }}
+                source={{ uri: 'https://mobile.okra.ng/' }}
                 javaScriptEnabled={true}
                 injectedJavaScript={this.INJECTED_JAVASCRIPT}
                 onLoadEnd={syntheticEvent => {

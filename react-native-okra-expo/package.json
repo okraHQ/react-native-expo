@@ -1,7 +1,7 @@
 {
   "name": "react-native-okra-expo",
   "title": "React Native Okra Expo",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "description": "Okra widget v2 beta version",
   "main": "index.js",
   "files": [
@@ -32,7 +32,8 @@
   "peerDependencies": {
     "react": "^16.8.1",
     "react-native": ">=0.60.0-rc.0 <1.0.x",
-    "react-native-device-info": "^6.2.0",
+    "expo-device": "^3.1.1",
+    "expo-constants": "^10.0.1",
     "react-native-webview": "^10.9.0"
   },
   "devDependencies": {
