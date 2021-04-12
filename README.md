@@ -22,40 +22,27 @@ This library would help you add Okra widget to your react native IOS/Android app
 ### Install Okra-Expo
 1. install react-native-okra-expo
 ``` npm
-$ npm install react-native-okra-expo
+$ npm install react-native-okra-expo@2.1.0
 ```
 
-2. link react-native-okra-expo
-``` npm
-$ react-native link react-native-okra-expo
-```
-
-3. Pod install: enter the ios directory in the root directory the project and run:
-``` pod
-$ pod install
-```
-
-### Install react-native-webview
+### Install react-native-webview, expo-device plugin and expo-constants plugin
 
 1. install react-native-webview
 ``` npm
 npm install --save react-native-webview
 ```
 
-2. link react-native-okra-expo
+2. install expo-device
 ``` npm
-$ react-native link react-native-webview
+npm install --save expo-device
 ```
 
-3. Pod install: enter the ios directory in the root directory the project and run:
-``` pod
-$ pod install
+3. install expo-constants
+``` npm
+npm install --save expo-constants
 ```
 
-
-
-### Usage
-
+### Usage for version 2.0.6-beta.1 and below
 
 ``` javascript
 import React from 'react';
@@ -104,6 +91,58 @@ export default function App() {
   );
 }
 ```
+
+### Usage for version 2.0.7-beta.1 and above
+
+``` javascript
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import OkraView from 'react-native-okra-expo';
+
+export default function App() {
+  var okraOptions = {
+    callback_url:"https://webhook.site/ded54b3f-f4f5-4fa1-86c3-0def6098fb4d",
+    clientName:"client",
+    color:"#953ab7",
+    connectMessage:"Which account do you want to connect with?",
+    currency:"NGN",
+    env:"production", // for sandbox use production-sandbox
+    exp:"2020-08-06",
+    filter:{
+      banks: ['access-bank', 'guaranty-trust-bank'],
+      industry_type: 'all',
+    },
+    options:{saverid: 'this is it'},
+    isCorporate:false,
+    key:"fa85e5ce-0e4e-5a88-883d-9ba9b4357683",
+    limit:"24",
+    logo:"https://cdn.okra.ng/images/icon.svg",
+    products:['auth', 'balance', 'identity', 'transactions'],
+    redirect_url:"redirect",
+    success_message:"this is the success message",
+    success_title:"it has entered success",
+    token:"5da6358130a943486f33dced",
+    widget_failed:"",
+    widget_success:"Your account was successfully linked to Okra, Inc"
+  }
+  return (
+    <OkraView
+    okraOptions={okraOptions}
+    onClose={response => {
+      console.log('on close');
+    }}
+    onSuccess={response => {
+      console.log('on success', response);
+    }}
+    onError={response => {
+      console.log('on error');
+    }}
+/>
+  );
+}
+```
+
+
 
 ## OkraOptions
 
